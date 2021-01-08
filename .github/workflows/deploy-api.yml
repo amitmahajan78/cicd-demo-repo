@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: 11
-      - run: docker build -t amitmahajan/demo-api .
+      - run: mvn clean install && docker build -t amitmahajan/demo-api .
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}

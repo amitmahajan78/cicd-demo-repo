@@ -43,5 +43,5 @@ jobs:
       # Deploy the demo-api to the GKE cluster
       - name: Deploy
         run: |-
-          kubectl apply -f k8s/app-deployment.yaml
-          kubectl get services -o wide       
+          kubectl rollout restart deployment demo-app-depl
+          kubectl rollout status deployment demo-app-depl    

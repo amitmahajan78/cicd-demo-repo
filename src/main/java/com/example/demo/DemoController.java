@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class DemoController {
 
-    private static final String template = "Hello, %s!";
+    private static final String template = "Hello, [Release:11] - %s!";
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/greeting")

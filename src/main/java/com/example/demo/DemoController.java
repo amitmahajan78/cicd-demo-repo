@@ -14,7 +14,7 @@ public class DemoController {
 
     @GetMapping("/greeting")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-        System.out.println("Enter in release 8");
+        System.out.println("Enter in release 9");
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
 }

@@ -1,9 +1,10 @@
 name: deploy-api
 
+
 on:
-  release:
-    types: 
-      - created
+  push:
+    branches: 
+      - main
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}

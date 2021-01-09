@@ -7,10 +7,8 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: cluster-1    # TODO: update to cluster name
-  GKE_ZONE: us-central1-c   # TODO: update to cluster zone
-  DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
-  IMAGE: static-site
+  GKE_CLUSTER: demo-cluster    # TODO: update to cluster name
+  GKE_REGION: europe-west2   # TODO: update to cluster region
 
 jobs:
   build-image-deploy-on-kube:
@@ -39,4 +37,10 @@ jobs:
       
       # Get the GKE credentials so we can deploy to the cluster
       - run: |-
-          gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"   
+          gcloud container clusters get-credentials "$GKE_CLUSTER" --region "$GKE_REGION"
+      
+      # Deploy the demo-api to the GKE cluster
+      - name: Deploy
+        run: |-
+          kubectl create -f 
+          kubectl get services -o wide       

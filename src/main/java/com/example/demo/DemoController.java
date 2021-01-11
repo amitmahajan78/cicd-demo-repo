@@ -9,12 +9,12 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class DemoController {
 
-    private static final String template = "Hello, [Release:11] - %s!";
+    private static final String template = "Hello, [Release:13] - %s!";
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/greeting")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-        System.out.println("Enter in release 10");
+        System.out.println("Enter in release 13");
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
 }

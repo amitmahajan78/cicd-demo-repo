@@ -9,6 +9,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 public class GreetingControllerTests {
@@ -26,8 +27,8 @@ public class GreetingControllerTests {
     @Test
     public void paramGreetingShouldReturnTailoredMessage() throws Exception {
 
-        this.mockMvc.perform(get("/greeting").param("name", "Spring Community"))
-                .andDo(print()).andExpect(status().isOk())
+        this.mockMvc.perform(get("/greeting").param("name", "Spring Community")).andDo(print())
+                .andExpect(status().isOk())
                 .andExpect(jsonPath("$.content").value("Hello, [Release:21] - Spring Community!"));
     }
 
